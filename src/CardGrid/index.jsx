@@ -6,17 +6,16 @@ export const Card = ({
   correctDoggie,
   isSelected
 }) => {
-
-  const cssString = (
-    (isSelected && correctDoggie.breed === doggie.breed)? 'overlay Yes' :
-    (isSelected && correctDoggie.breed !== doggie.breed)? 'overlay No'  :
-    ''
-  );
+  const cssString = !isSelected ?
+    '' :
+    correctDoggie.breed === doggie.breed ?
+      'image__dog--correct' :
+      'image__dog--incorrect';
 
   return (
-    <div className="Grid-card" onClick={handleClick}>
-      {isSelected ? <p className="Auto">{doggie.breed}</p> : <img src={doggie.image} alt={doggie.breed}></img>}
-      <div className={cssString}/>
+    <div className="grid__card" onClick={handleClick}>
+      <img className={`image__dog ${cssString}`} src={doggie.image} alt={doggie.breed}></img>
+      {isSelected && <div className="grid__card-overlay">{doggie.breed}</div>}
     </div>
   );
 }

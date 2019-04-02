@@ -56,15 +56,14 @@ const App = () => {
   const correctDoggie = currentDoggies[correctDoggieIndex];
 
   return (
-    <div className="App">
-      <header className="Header-Title-Container">
-        <h1 className="Header-Title">Doggie Name Game!</h1>
-      </header>
-      <section className="Space"/>
+    <div className="app">
+      Doggie Name Game!
+      <section className="space"/>
       {correctDoggie && (
         <Fragment>
           <div>{`Which dog is a ${correctDoggie.breed}?`}</div>
-          <div className="Grid">
+          <section className="space"/>
+          <div className="grid">
             {currentDoggies.map(
               (doggie) => (
                 <Card
